@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BmiCalculator = void 0;
+const bmiCategories_json_1 = __importDefault(require("./bmiCategories.json"));
 class BmiCalculator {
     constructor() {
         this.calculate = (obj) => {
@@ -15,14 +19,7 @@ class BmiCalculator {
             }
             return obj;
         };
-        this._bimiCateogies = {
-            "0 - 18.4": { observation: "Underweight", impact: "Malnutrition risk" },
-            "18.5 - 24.9": { observation: "Normal weight", impact: "Low risk" },
-            "25 - 29.9": { observation: "Overweight", impact: "Enhanced risk" },
-            "30 - 34.9": { observation: "Moderately obese", impact: "Medium risk" },
-            "35 - 39.9": { observation: "Severely obese", impact: "High risk" },
-            "40 - 100": { observation: "Very severely obese", impact: "Very high risk" },
-        };
+        this._bimiCateogies = bmiCategories_json_1.default;
     }
     get bmiCategories() {
         return this._bimiCateogies;
