@@ -1,15 +1,10 @@
+import  {default as BmiCategories}  from './bmiCategories.json';
+ 
 export class BmiCalculator {
   private _bimiCateogies;
 
   constructor(){
-    this._bimiCateogies = {
-        "0 - 18.4": {observation: "Underweight", impact: "Malnutrition risk"},
-        "18.5 - 24.9": {observation: "Normal weight", impact: "Low risk"},
-        "25 - 29.9": {observation: "Overweight", impact: "Enhanced risk"},
-        "30 - 34.9": {observation: "Moderately obese", impact: "Medium risk"},
-        "35 - 39.9": {observation: "Severely obese", impact: "High risk"},
-        "40 - 100": {observation: "Very severely obese", impact: "Very high risk"},
-    }
+    this._bimiCateogies = BmiCategories;
   }
 
   get bmiCategories() {
