@@ -19,4 +19,12 @@ describe('bmiCalculator', () => {
         });
     }
 
+
+    it('trying to failing the code intensionally. passing BMI value as 0 by  default', () => {
+        let bmiObj =new BmiCalculator();
+        let bmi = 0;
+        let userObj = UserData[0];
+        expect(bmiObj.calculate(userObj).bmi).to.equals(bmi);
+    });
+
 });
