@@ -2,6 +2,7 @@ import { BmiCalculator } from '../bmiCalculator';
 import { expect } from  'chai';
 import { default as UserData } from '../users.json';
 const feetValue = 30.48;
+const failedCase = false; // setting value TRUE/FALSE will switch on/off the intentional failure
 
 describe('bmiCalculator', () => {
     it('initialized bmi calculator testing process', () => {
@@ -19,12 +20,13 @@ describe('bmiCalculator', () => {
         });
     }
 
-
-    it('trying to failing the code intensionally. passing BMI value as 0 by  default', () => {
-        let bmiObj =new BmiCalculator();
-        let bmi = 0;
-        let userObj = UserData[0];
-        expect(bmiObj.calculate(userObj).bmi).to.equals(bmi);
-    });
+    if(failedCase) {
+        it('trying to failing the code intensionally. passing BMI value as 0 by  default', () => {
+            let bmiObj =new BmiCalculator();
+            let bmi = 0;
+            let userObj = UserData[0];
+            expect(bmiObj.calculate(userObj).bmi).to.equals(bmi);
+        });
+    }
 
 });
